@@ -1,13 +1,26 @@
 package com.github.napolitain.sat
 
-class Atom(private val value: Boolean = true) {
+class Atom(private val index: Int, private val value: Boolean = true) {
 
-	operator fun Atom.not(): Atom {
+	operator fun not(): Atom {
 		return if (value) {
-			Atom(false)
+			Atom(index, false)
 		} else {
-			Atom(true)
+			Atom(index, true)
 		}
+	}
+
+	override fun hashCode(): Int {
+		return index;
+	}
+
+	override fun equals(other: Any?): Boolean {
+		if (other != null) {
+			if (other is Atom) {
+				return this.hashCode() == other.hashCode()
+			}
+		}
+		return false;
 	}
 
 }

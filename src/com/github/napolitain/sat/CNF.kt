@@ -21,13 +21,15 @@ class CNF(path: String) {
 			val electrons: String = iterator.next()
 			cnf.add(LinkedList())
 			for (electron in electrons.split(" ")) {
-				val atom: Atom = if (electron.startsWith("!")) {
-					Atom(electron[1].toInt())
+				val atom: Atom
+				if (electron.startsWith("!")) {
+					atom = Atom(electron[1].toInt())
+					cnf.last.add(!atom)
 				} else {
-					Atom(electron[0].toInt())
+					atom = Atom(electron[0].toInt())
+					cnf.last.add(atom)
 				}
 				atoms.add(atom)
-				cnf.last.add(!atom)
 			}
 		}
 		bufferedReader.close();

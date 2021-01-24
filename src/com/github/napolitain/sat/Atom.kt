@@ -1,8 +1,19 @@
 package com.github.napolitain.sat
 
-class Atom(private val index: Int, private var value: Boolean = true) {
+import kotlin.random.Random
 
-	// TODO: random value affectation
+class Atom(private val index: Int, value: Boolean? = null) {
+
+	private var value: Boolean
+
+	init {
+		// TODO: check better version if possible
+		if (value == null) {
+			this.value = Random.nextBoolean()
+		} else {
+			this.value = value
+		}
+	}
 
 	/**
 	 * Negative operator for Atom.

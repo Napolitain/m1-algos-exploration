@@ -15,6 +15,13 @@ class AtomTest {
 	}
 
 	@Test
+	fun flip() {
+		val a = Atom(1, true)
+		a.flip()
+		assertEquals(a.value, false)
+	}
+
+	@Test
 	fun equalsSameValue() {
 		val a = Atom(1, true)
 		val b = Atom(2, true)
@@ -29,10 +36,9 @@ class AtomTest {
 	}
 
 	@Test
-	fun flip() {
+	fun equalsNotAtom() {
 		val a = Atom(1, true)
-		a.flip()
-		assertEquals(a.value, false)
+		assertEquals(a == !a, true)
 	}
 
 }

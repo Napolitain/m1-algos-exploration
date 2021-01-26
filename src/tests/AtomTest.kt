@@ -10,7 +10,7 @@ class AtomTest {
 
 	@Test
 	operator fun not() {
-		var a = Atom(1, true)
+		val a = Atom(1, true)
 		assertEquals(!a.value, false)
 	}
 
@@ -30,7 +30,7 @@ class AtomTest {
 
 	@Test
 	fun flip() {
-		var a = Atom(1, true)
+		val a = Atom(1, true)
 		a.flip()
 		assertEquals(a.value, false)
 	}

@@ -18,14 +18,14 @@ class AtomTest {
 	fun equalsSameValue() {
 		val a = Atom(1, true)
 		val b = Atom(2, true)
-		assertEquals(a.equals(b), false)
+		assertEquals(a == b, false)
 	}
 
 	@Test
 	fun equalsSameIndex() {
 		val a = Atom(1, true)
 		val b = Atom(1, false)
-		assertEquals(a.equals(b), true)
+		assertEquals(a == b, true)
 	}
 
 	@Test

@@ -3,13 +3,14 @@ package com.github.napolitain.sat
 import java.io.BufferedReader
 import java.io.File
 import java.io.FileReader
-import java.util.*
+import kotlin.random.Random
 
 class SAT(path: String) {
 
 	// (a ou b) et (a ou c)
-	private val atoms: Set<Atom>
+	private val atoms: MutableSet<Atom>
 	private val cnf: MutableList<MutableList<Atom>>
+	private val cnfLength: Int
 
 	init {
 		val fileName: String = File(".").canonicalPath + "/src/" + path
@@ -17,7 +18,7 @@ class SAT(path: String) {
 		val iterator = bufferedReader.lineSequence().iterator()
 		atoms = mutableSetOf()
 		cnf = mutableListOf()
-		var i: Int = 0;
+		var i = 0;
 		while (iterator.hasNext()) {
 			val electrons: String = iterator.next()
 			cnf.add(mutableListOf())
@@ -34,9 +35,29 @@ class SAT(path: String) {
 			}
 			i++;
 		}
+		cnfLength = i+1;
 		bufferedReader.close();
 	}
 
+	fun genericMetaheuristic(max_tries: Int, max_flips: Int) {
+		for (i in 1..max_tries) {
+			// initialisation
+			for (atom in atoms) {
+				if (Random.nextBoolean()) {
+					atom.flip()
+				}
+			}
+			// test une configuration aléatoire
+			var localBest: MutableSet<Atom> = mutableSetOf()
+			for (j in 1..max_flips) {
+				genericMove()
+			}
+		}
+		// selection de la meilleure configuration
+	}
 
+	fun genericMove() {
+
+	}
 
 }

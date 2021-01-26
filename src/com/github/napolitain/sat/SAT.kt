@@ -8,9 +8,9 @@ import kotlin.random.Random
 class SAT(path: String) {
 
 	// (a ou b) et (a ou c)
-	private val atoms: MutableSet<Atom>
-	private val cnf: MutableList<MutableList<Atom>>
-	private val cnfLength: Int
+	val atoms: MutableSet<Atom>
+	val cnf: MutableList<MutableList<Atom>>
+	val cnfLength: Int
 
 	init {
 		val fileName: String = File(".").canonicalPath + "/src/" + path

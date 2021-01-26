@@ -1,6 +1,6 @@
 package com.github.napolitain.sat
 
-class Atom(private val index: Int, private var value: Boolean = true) {
+class Atom(val index: Int, var value: Boolean = true) {
 
 	/**
 	 * Negative operator for Atom.

@@ -1,6 +1,6 @@
 package tests
 
-import com.github.napolitain.sat.Atom
+import Atom
 import org.junit.Test
 
 import org.junit.Assert.*

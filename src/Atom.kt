@@ -1,4 +1,3 @@
-package com.github.napolitain.sat
 
 class Atom(val index: Int, var value: Boolean = true) {
 

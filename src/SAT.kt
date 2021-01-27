@@ -23,10 +23,10 @@ class SAT(path: String) {
 			for (electron in electrons.split(" ")) {
 				val atom: Atom
 				if (electron.startsWith("!")) {
-					atom = Atom(electron[1].toInt())
+					atom = Atom(electron[1].toString().toInt())
 					cnf[i].add(!atom)
 				} else {
-					atom = Atom(electron[0].toInt())
+					atom = Atom(electron[0].toString().toInt())
 					cnf[i].add(atom)
 				}
 				atoms.add(atom)

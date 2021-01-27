@@ -2,9 +2,7 @@ package tests
 
 import Atom
 import org.junit.Test
-
 import org.junit.Assert.*
-import java.util.concurrent.BrokenBarrierException
 
 class AtomTest {
 

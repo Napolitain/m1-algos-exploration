@@ -1,6 +1,7 @@
 import java.io.BufferedReader
 import java.io.File
 import java.io.FileReader
+import kotlin.math.min
 import kotlin.random.Random
 
 fun <E> HashSet<E>.findByHashCode(other: E): E? = firstOrNull { it.hashCode() == other.hashCode() }
@@ -8,7 +9,7 @@ fun <E> HashSet<E>.findByHashCode(other: E): E? = firstOrNull { it.hashCode() ==
 class SAT(path: String) {
 
 	// (a ou b) et (a ou c)
-	val atoms: MutableMap<Int, Atom>
+	var atoms: MutableMap<Int, Atom>
 	val cnf: MutableList<MutableList<Atom>>
 	val cnfLength: Int
 
@@ -28,7 +29,7 @@ class SAT(path: String) {
 					if (atoms.containsKey(index)) {
 						cnf[i].add(!atoms[index]!!)
 					} else {
-						val atom = Atom()
+						val atom = Atom(index)
 						cnf[i].add(!atom)
 						atoms[index] = atom
 					}
@@ -37,7 +38,7 @@ class SAT(path: String) {
 					if (atoms.containsKey(index)) {
 						cnf[i].add(atoms[index]!!)
 					} else {
-						val atom = Atom()
+						val atom = Atom(index)
 						cnf[i].add(atom)
 						atoms[index] = atom
 					}
@@ -49,10 +50,26 @@ class SAT(path: String) {
 		bufferedReader.close();
 	}
 
+	private fun cost(atoms: MutableMap<Int, Atom>): Int {
+		var i = 0;
+		for (mutableList in cnf) {
+			var eval = false;
+			for (atom in mutableList) {
+				if (atom.)
+			}
+		}
+		return i;
+	}
+
+	private fun min(mutableMap: MutableMap<Int, Atom>, best: MutableMap<Int, Atom>): MutableMap<Int, Atom> {
+		TODO("Not yet implemented")
+	}
+
 	fun genericMetaheuristic(max_tries: Int, max_flips: Int) {
 		for (i in 1..max_tries) {
 			// initialisation
-			for (atom in atoms.values) {
+			var x: MutableMap<Int, Atom> = atoms;
+			for (atom in x.values) {
 				if (Random.nextBoolean()) {
 					atom.flip()
 				}
@@ -60,15 +77,16 @@ class SAT(path: String) {
 			// test une configuration
 			var localBest: MutableMap<Int, Atom> = mutableMapOf()
 			for (j in 1..max_flips) {
-				genericMove(atoms)
+				x = genericMove(atoms)
+				localBest = min(x, localBest);
 			}
 		}
 		// selection de la meilleure configuration
 	}
 
-	fun genericMove(atomsCurrent: MutableMap<Int, Atom>) {
+	fun genericMove(atomsCurrent: MutableMap<Int, Atom>) : MutableMap<Int, Atom> {
 		var i = 0
-
+		return atomsCurrent
 	}
 
 }

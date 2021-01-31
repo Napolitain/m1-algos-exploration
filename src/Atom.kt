@@ -1,5 +1,5 @@
 
-class Atom(var value: Boolean = true) {
+class Atom(val index: Int, var value: Boolean = true) {
 
 	/**
 	 * Negative operator for Atom.
@@ -7,9 +7,9 @@ class Atom(var value: Boolean = true) {
 	 */
 	operator fun not(): Atom {
 		return if (value) {
-			Atom(false)
+			Atom(index, false)
 		} else {
-			Atom(true)
+			Atom(index, true)
 		}
 	}
 

@@ -1,5 +1,5 @@
 
-class Atom(val index: Int, var value: Boolean = true) {
+class Atom(var value: Boolean = true) {
 
 	/**
 	 * Negative operator for Atom.
@@ -7,30 +7,10 @@ class Atom(val index: Int, var value: Boolean = true) {
 	 */
 	operator fun not(): Atom {
 		return if (value) {
-			Atom(index, false)
+			Atom(false)
 		} else {
-			Atom(index, true)
+			Atom(true)
 		}
-	}
-
-	/**
-	 * Unique identifier for Atom A.
-	 * File used for it specifies as a1, a2, a3... an
-	 */
-	override fun hashCode(): Int {
-		return index;
-	}
-
-	/**
-	 * Used with hashCode for checking if Atom ax is in atoms: Set<Atom>
-	 */
-	override fun equals(other: Any?): Boolean {
-		if (other != null) {
-			if (other is Atom) {
-				return this.hashCode() == other.hashCode()
-			}
-		}
-		return false;
 	}
 
 	/**

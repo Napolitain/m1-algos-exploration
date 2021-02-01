@@ -1,23 +1,25 @@
 
 class Atom(val index: Int, var value: Boolean = true) {
 
-	/**
-	 * Negative operator for Atom.
-	 * !A has for value false if A has for value true.
-	 */
-	operator fun not(): Atom {
-		return if (value) {
-			Atom(index, false)
+	override fun equals(other: Any?): Boolean {
+		return if (other is Atom) {
+			value == other.value
 		} else {
-			Atom(index, true)
+			false
 		}
 	}
+
+
 
 	/**
 	 * Flip value, used in GSAT, Walksat...
 	 */
 	fun flip() {
 		value = !value
+	}
+
+	override fun toString(): String {
+		return "x$index =$value)\n"
 	}
 
 }

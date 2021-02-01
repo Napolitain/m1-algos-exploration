@@ -112,10 +112,3 @@ class SAT(path: String) {
 	}
 
 }
-
-/**
- * Or method between boolean and Variable
- */
-private fun Boolean.or(variable: Variable): Boolean {
-	return this.or(variable.value())
-}
